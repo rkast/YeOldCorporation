@@ -1,0 +1,470 @@
+1,L,Electric,Electric
+2,L,Overhead,Overhead
+3,L,Poles,Poles
+4,S,CUS_POLE_WOOD,Wood Pole
+4,S,CUS_POLE_FBRGLS,Fiberglass Pole
+4,S,CUS_POLE_STRMLN,Streamline Pole
+4,S,CUS_POLE_HDWR,Pole Hardware
+4,S,CUS_POLE_PURCH_INT,Pole| Purchase Interest
+4,L,Miscellaneous Pole Adders,Miscellaneous Pole Adders
+5,S,CUS_POLE_ADDER,Pole Labor Adders
+5,S,CUS_STEP_WOOD_POLE,Step Wood Pole
+5,S,CUS_STEP_FBRGLS,Step Fiberglass & Steel Pole
+5,S,CUS_WOOD_STUB,Wood Stub
+5,S,CUS_STEEL_STUB,Steel Stub
+5,S,CUS_AL_NUMERAL,Aluminum Numerals
+5,S,CUS_ADHSV_NUMERAL,Adhesive Numerals
+5,S,CUS_HV_PN_SIGN,High Voltage & Primary Neutral Sign
+3,L,Primary Framing and Hardware,Primary Framing and Hardware
+4,L,Insulators,Insulators
+5,S,CUS_INSULATOR,Insulator
+5,S,CUS_INS_PIN_STUD,Insulator| w/ Pins & Studs
+5,S,CUS_PRI_BRKR_FIG_8,Breakers| Figure 8
+4,L,X-Arms and Brackets,X-Arms and Brackets
+5,L,Crossarm Framing,Crossarm Framing
+6,S,CUS_XARM_W_FLAT,Flat Wood Crossarms|  Tan/Ang/Slack
+6,S,CUS_XARM_W_PTP,Tri Wood Crossarms| Tan/Ang/Slack
+6,S,CUS_XARM_W_ALLEY,Alley Wood Crossarms
+6,S,CUS_XARM_W_DE,Deadend Wood Crossarms
+6,S,CUS_XARM_W_DDE,Double-Deadend Wood Crossarms
+5,S,CUS_XARM_BARE,Bare Crossarms| Wood/Composite
+5,S,CUS_BOND_BRIDGE,Bonding & Bridging
+5,S,CUS_SGL_INS_BKT,Single Insulator Bracket
+5,S,CUS_MTG_BKT,Mounting Bracket
+5,S,CUS_MISC_FRM_HDWR,Miscellaneous Framing Hardware
+4,L,Miscellaneous Overhead,Miscellaneous Overhead
+5,L,Jumpers & Connectors,Jumpers & Connectors
+6,S,CUS_JUMPERS_TIES,Jumpers
+6,S,CUS_PRI_LEAD_WIRE,Lead Wires
+6,S,CUS_WEDGE_CONN,Wedge Connectors
+6,S,CUS_H_TAP_CONN,H-Tap Connectors
+6,S,CUS_TAP_CLAMP,Tap Clamp
+6,S,CUS_TAP_LINE_GUARD,Tap Line Guard
+5,S,CUS_FRMD_INSUL_TIE,Formed Insulator Tie
+5,S,CUS_TREE_WIRE_ATT,Tree Wire Attachment
+5,S,CUS_FI_OH,Fault Indicator
+5,S,CUS_DE_AUTO,Automatic Deadends
+5,S,CUS_DE_CLAMP,Clamp Type Deadends
+5,S,CUS_DE_PRFRM,Preformed Deadends
+5,S,CUS_EXT_LINK,Extension Link
+5,S,CUS_REPAIR_SLEEVE,Repair Sleeve
+5,S,CUS_ARMOR_ROD,Armor Rod
+4,L,Raptor and Animal Guards,Raptor and Animal Guards
+5,S,CUS_RAPTOR_COVER,Raptor Cover
+5,S,CUS_RAPTOR_GUARD,Raptor Guard
+5,S,CUS_JUMPER_LEADCVR,Jumper Lead Cover
+5,S,CUS_RAPTOR_DIVERTR,Raptor Bird Diverter
+5,S,CUS_RAPTOR_SPACER,Raptor Wire Spacer
+5,S,CUS_SQUIRREL_TAPE,Squirrel Tape
+3,L,Secondary Framing and Hardware,Secondary Framing and Hardware
+4,L,Splices and Fittings,Splices and Fittings
+5,S,CUS_OH_SPLICE,Splice| Overhead
+5,S,CUS_DE_SEC,Deadends| Secondary
+5,S,CUS_SEC_BREAKER,Breakers| Secondary
+4,L,XArms and Supports,XArms and Supports
+5,S,CUS_SEC_XARM_ASM,Crossarm Assembly| Secondary
+5,S,CUS_SEC_UA_BUS,Underarm Bus
+5,S,CUS_SEC_SUPPORT,Secondary Supports
+5,S,CUS_SEC_INSULATOR,Insulator| Secondary
+4,L,Connectors,Connectors
+5,S,CUS_MINIWEDGE_CONN,Mini Wedge Connector
+5,S,CUS_COMPRESS_CONN,Compression Connector
+5,S,CUS_PIERCING_CONN,Piercing Tap Connector
+5,S,CUS_PIN_TERMINAL,Pin Terminal
+4,L,Jumpers and UABs,Jumpers and UABs
+5,S,CUS_SEC_JUMPER,Jumpers| Secondary
+5,S,CUS_H_TAP_CONN,H-Tap Connectors
+5,S,CUS_SEC_TIE_WIRE,Secondary Tie Wire
+3,L,Guys and Anchors,Guys and Anchors
+4,L,Anchors,Anchors
+5,S,CUS_ANCHOR,Anchors w/ Rod
+5,S,CUS_ANCHOR_ROD,Anchor Rod| Non-PISA
+5,S,CUS_ANCHOR_ROD_EXT,PISA Rod Extensions w/ Coupling
+4,L,Span and Down Guys,Span and Down Guys
+5,S,CUS_SPAN_GUY_HALF,Half Span Guy| Complete Assembly
+5,S,CUS_GUY_ASM,Down Guy| Complete Assembly
+5,S,CUS_GUY_STRAND,Down Guy| Strand
+4,L,Span/Down Guy Hardware & Adders,Span/Down Guy Hardware & Adders
+5,S,CUS_SPAN_GUY_HDWR,Span Guy Hardware| Pole & XArm Attach
+5,S,CUS_GUY_HDWR,Guy Hardware
+5,S,CUS_GUY_INSULATOR,Guy Grips w/ Insulator
+5,S,CUS_GUY_GRIP,Guy Grips
+5,S,CUS_GUY_MARKER,Down Guy Marker
+5,S,CUS_GUY_SPLICE,Span/Down Guy Splice w/ Strand
+3,L,Conductors,Conductors
+4,L,Primary,Primary
+5,S,CUS_OH_COND_ACSR,ACSR Conductors
+5,S,CUS_OH_COND_AL,All Aluminum Conductors
+5,S,CUS_OH_COND_COPR,Copper Conductors
+5,S,CUS_OH_LENGTN_COND,Splice In Conductor
+5,S,CUS_VIB_DAMPER,Vibration Dampers
+4,L,600V,600V
+5,S,CUS_OH_SVC_NSD,Service Drop Cable
+5,S,CUS_OH_SEC_AWAC,Aerial Cable| AWAC/ACSR
+5,S,CUS_OH_SEC_OW,Open Wire| Bare/WP
+5,S,CUS_OH_COND_STLT,Streetlight Conductor
+5,S,CUS_SPL_IN_SEC_CND,Splice in Conductor| 600V
+3,L,Primary Line Equipment,Primary Line Equipment
+4,L,Switches & Components,Switches & Compentents
+5,S,CUS_OH_SWITCH,25KV Underarm Side-Break Switch
+5,S,CUS_OH_SWITCH_HDWR,Switch Hardware
+5,S,CUS_OH_SCADA_CMPNT,Misc Components| SCADA
+4,L,Cutouts| Disconnects & Fuses,Cutouts| Disconnects & Fuses
+5,L,Cutouts and Disconnects,Cutouts and Disconnects
+6,S,CUS_FUSED_CUTOUT,Fused Cutout
+6,S,CUS_DISCONN_SWITCH,Solid Blade Disconnects
+6,S,CUS_LIGHTNG_ARRSTR,Lightning Arresters
+6,S,CUS_CUTOUTDISC_BKT,Cutout & Disconnect Mounting Bracket
+5,L,Fuses & Solid Blades,Fuses & Solid Blades
+6,S,CUS_CUTOUT_FUSE,Fuses| Cutout
+6,S,CUS_SB_CUTOUT,Solid Blades
+4,L,Reclosers,Reclosers
+5,S,CUS_RECLOSER_PKG,Nova Recloser w/ Options
+5,S,CUS_RECLOSER,6H| RVE & RXE Reclosers
+5,S,CUS_RECLOSER_JUMPR,Recloser Jumpers
+5,S,CUS_LIGHTNG_ARRSTR,Lightning Arrestors
+5,S,CUS_OH_SCADA_CMPNT,Misc Components| SCADA
+4,L,Regulators and Boosters,Regulators and Boosters
+5,S,CUS_VOLT_REG_1PH,Voltage Regulators| 1PH
+5,S,CUS_BOOSTER_TX,Voltage Boosters| 1PH
+5,S,CUS_BYPASS_XFER_SW,Bypass Transfer Switch
+5,S,CUS_REGULATOR_LEAD,Regulator Leads
+5,S,CUS_OH_REG_PLTFRM,Regulator Platform
+4,L,Capacitors,Capacitors
+5,S,CUS_OH_CAP_SW,Switched Capacitor| Overhead
+5,S,CUS_CAPACITOR_UNIT,Individual Capacitor Units
+5,S,CUS_CAP_BANK_FUSE,Capacitor Bank Fuse
+5,S,CUS_OH_CAP_HDWR,Capacitor Hardware| Overhead
+5,S,CUS_LIGHTNG_ARRSTR,Lightning Arrestor
+4,L,Sectionalizers,Sectionalizers
+5,S,CUS_SECTIONALIZER,Sectionalizer
+3,L,Risers,Risers
+4,S,CUS_RISER_MLDG,Molding
+4,S,CUS_RISERBEND_MISC,Bend| Ground & Seal Kit
+4,S,CUS_RISER_GRIPSTEP,Grip & Pole Step| Riser
+4,S,CUS_RSR_CUST_STLT,Customer Streeetlight| Riser
+4,S,CUS_VERT_RUN,Vertical Runs
+4,S,CUS_STEP_RSR_POLE,Step Wood Pole| Riser
+4,S,CUS_STL_RISER_10FT,Steel Riser| 10'
+4,S,CUS_LIGHTNG_ARRSTR,Lightning Arrestor
+3,L,Transformers,Transformers
+4,S,CUS_TX_OH_1PH,1PH Overhead Transformer
+4,S,CUS_TX_OH_3PH,3PH Overhead Transformer
+4,S,CUS_TX_STREAMLINE,Streamline Transformer
+4,S,CUS_STEPDOWN_TX,Stepdown Transformer| 21kV to 12kV
+4,L,Bussing,Bussing
+5,S,CUS_SEC_BUS_1PH_TX,1PH Secondary Bussing
+5,S,CUS_SEC_BUS_3PH_TX,3Ph Secondary Bussing
+5,S,CUS_TX_BANK_SECBUS,Open/Closed Delta Secondary Bussing
+4,L,Grounds and Misc.,Grounds and Misc.
+5,S,CUS_GRD_HDWR,Ground Hardware
+5,S,CUS_TX_GRD_HDWR,Transformer Ground Hardware
+5,S,CUS_TX_MTG_BKT,Transformer Mounting Brackets
+5,S,CUS_VERT_RUN,Vertical Runs
+5,S,CUS_LIGHTNG_ARRSTR,Lightning Arrestors
+3,L,Services,Services
+4,L,Service Attachments,Service Attachments
+5,S,CUS_SVC_ATTACH,Service Termination Attachment
+5,S,CUS_DE_LRG_OW_SRV,Large 1PH OW Service| DE Attachment
+5,S,CUS_SVC_CLEARSUPRT,Service Clearance Support
+5,S,CUS_PRFRM_DE_SVC,Preformed Deadends| Service
+5,S,CUS_SVC_DE_ON_ARM,Deadend On Arm| DPX/TPX/QPX
+5,S,CUS_SVC_TREE_ATT,Service Tree Attachment
+4,L,Sleeves and Connectors,Sleeves and Connectors
+5,S,CUS_SVC_SLEEVE_AL,Insulated Sleeves| Service
+4,L,Misc. Fittings and Material,Misc. Fittings and Material
+5,S,CUS_SVC_FITTING,Service Fitting
+5,S,CUS_MID_SPAN_CLAMP,Mid-Span Clamp
+5,S,CUS_SPAN_GUY_MESS,Span Guy Messenger
+2,L,Underground,Underground
+3,L,Cable,Cable
+4,L,Primary Cable,Primary Cable
+5,S,CUS_PRI_CABLE,Primary Cable
+5,S,CUS_CBL_LSZHSUBSTN,Cable| LSZH Substation
+4,L,600V Cable,600V Cable
+5,S,CUS_CABLE_600V,Cable| Secondary
+4,L,Pulling and Racking,Pulling and Racking
+5,S,CUS_PULL_RACK,Labor For Pulling & Racking
+5,S,CUS_CABLE_SUPPORT,Cable Racking Kits
+5,S,CUS_PULLING_ACC,Pull Tape & Lubricant
+4,L,Fault Indicators,Fault Indicators
+5,S,CUS_FI_UG,Fault Indicators
+5,S,CUS_UG_FI_HDWR,Fault Indicator Hardware
+3,L,Splices and End Caps,Splices and End Caps
+4,L,Primary Splices,Primary Splices
+5,S,CUS_200A_STR_SPL,Straight Splice| Premolded| 200A
+5,S,CUS_600A_STR_SPL,Straight Splice| Cold Shrink| 600A| 3M
+5,S,CUS_SPL_CMP_CON_3M,Compression Splice| 600A| 3M
+5,S,CUS_NETWORK_SPL_3C,Straight Splice| Solder Type| Cu To Cu
+5,S,CUS_SPL_CMP_CONN,Compression Splice| Oil Stop
+5,S,CUS_SPLICE_HDWR,PL&C Shielding Kit
+4,L,600V Splices,600V Splices
+5,S,CUS_600V_SPLICE,Compression Splice| 600V
+5,S,CUS_CONN_UG_FEED,Compression Splice| Streetlight
+4,L,End Caps,End Caps
+5,S,CUS_CABLE_END_CAPS,Cable End Cap
+5,S,CUS_PRI_CLRCAP_NW,PL&C Clear Cap| Belted/Shielded
+4,L,Transition Splices,Transition Splices
+5,S,CUS_SPL_HOUSING,Transition & Trifurcating Splice Housing
+3,L,Terminators,Terminators
+4,L,Separable Connectors,Separable Connectors
+5,S,CUS_SPRBLCONN_200A,Elbows| 200A
+5,S,CUS_SPRBLCONN_ACC,Separable Accessories| 200A
+5,S,CUS_SPRBLCONN_600A,Network Separable Connector 600A
+5,S,CUS_SPRBL_CON_ACC_6,Separable Connector Parts| 600A
+5,S,CUS_SEP_CBL_ADPTR,Cable Adaptor & Spade Conn| 600A
+5,S,CUS_UG_TERM_MISC,Terminator| Miscellaneous| Underground
+5,S,CUS_SRAIGHT_RCPTCL,Straight Receptacle
+5,S,CUS_NET_CON_600A,Network Separable Connector 600A
+4,L,Riser Terminations,Riser Terminations
+5,S,CUS_COLDSHRNK_TERM,Outdoor Termination| Cold Shrink
+5,S,CUS_TERM_RSR_PRCLN,Outdoor Termination| Porcelain
+5,S,CUS_TERM_INDOOR,Indoor Termination| Cold Shrink
+5,S,CUS_CONN_CBL_TERM,Tap Connectors for Cable Termination
+5,S,CUS_SUBSTN_HDWR,Substation Hardware
+3,L,Conduit and Fittings,Conduit and Fittings
+4,S,CUS_CONDUIT,Conduit
+4,S,CUS_CONDUIT_BEND,Conduit Bends
+4,S,CUS_CONDUIT_ACC,Conduit Accessories
+4,S,CUS_CONDUIT_CEMENT,PVC Solvent Glue
+4,S,CUS_CONDUIT_MKR,EMS Ball Marker
+4,S,CUS_CONDUIT_REDUCR,Swedge Reducers
+4,S,CUS_CONDUIT_REPAIR,Repair PVC Conduit
+4,S,CUS_CONDUIT_SEAL,Conduit Seal Kit
+4,S,CUS_STRP_CONDUIT,Conduit Pipe Strap
+3,L,Boxes and Vaults,Boxes and Vaults
+4,L,Primary Enclosures,Primary Enclosures
+5,S,CUS_PRI_ENCL,Enclosures| Primary
+5,S,CUS_ENCL_COMPONENT,Parts and Components| Primary
+5,S,CUS_ENCL_FRAME_CVR,Frame and Cover Assemblies
+5,S,CUS_ENCL_GRD,Enclosure Ground
+5,S,CUS_ENCL_GROUT,Enclosure Grout
+4,L,Secondary / Service Boxes and Pedestals,Secondary / Service Boxes and Pedestals
+5,S,CUS_SEC_ENCL,Enclosures| Secondary
+5,S,CUS_SEC_ENCL_CMPNT,Parts and Components| Secondary
+5,S,CUS_SEC_PEDESTAL,Secondary Pedestals
+3,L,Secondary Connectors,Secondary Connectors
+4,S,CUS_CBL_SPADE_CONN,Cable-to-Spade Connectors
+4,S,CUS_MULTI_TAP_BUS,Insulated Aluminum Bus Kit| Multi-Tap
+4,S,CUS_MULTI_TX_TERM,Slip-Fit & Lay-In Transformer Terminals
+4,S,CUS_CONN600VMH_BUS,Cable Tee Bus Clamps
+4,S,CUS_UG_TAP_CONN,Streetlight Tap Connectors| Secondary
+4,S,CUS_NEUT_CONN_XLP,Neutral Connector to XLP
+4,S,CUS_CAP_SCREW_ASM,Cap Screw Assembly
+3,L,Switches and Capacitors,Switches and Capacitors
+4,L,PM Equipment,PM Equipment
+5,S,CUS_INTERRUPTER_PM,600A & 200A Interrupter| Padmount
+5,S,CUS_PAD_INTRPTR,Pad| Interrupter
+5,S,CUS_PM_CAPACITOR,Capacitor| Padmount
+5,S,CUS_PAD_CAPACITOR,Pad| Capacitor
+5,S,CUS_PMH,PMH
+5,S,CUS_PAD_PMH_POURED,Pad| PMH| Poured
+5,S,CUS_PAD_PMH,Pad| PMH| Precast
+5,S,CUS_SWITCH_PADS,Pads| Switch
+5,S,CUS_GRD_PAD,Pad Ground
+4,L,Subsurface Equipment,Subsurface Equipment
+5,S,CUS_SS_J_BOX,200A LB & DB Junction| Subsurface
+5,S,CUS_SS_SWITCH,600A & 200A Switch| Subsurface
+5,S,CUS_SS_FUSED_SW,200A Fused Switch| Subsurface
+5,S,CUS_SS_INTERRUPTER,600A & 200A Interrupter| Subsurface
+5,S,CUS_SS_INTRPR_HDWR,Subsurface Interrupter Hardware
+5,S,CUS_SS_FLT_INTERR,Fault Interrupter| Subsurface
+5,S,CUS_SS_SCADA_600A,Subsurface SCADA| 600A
+5,S,CUS_SS_SCADA_HDWR,Subsurface SCADA Hardware
+5,S,CUS_SS_STND_600A,Subsurface Trayer Stand| 600A
+5,S,CUS_SS_EQUP_DIELEC,Vault MTD Dielectric Switches & Interrupters
+4,L,Junctions,Junctions
+5,S,CUS_SS_J_BOX,200A LB & DB Junction| Subsurface
+5,S,CUS_PM_LB_JBOX_STL,200A LB Junction| Padmount
+5,S,CUS_JBOX_HDWR,J-Box Hardware
+5,S,CUS_JB_RPL_UNITIZ,200A LB Unitized Junction| Parts
+5,S,CUS_PAD_JBOX,Pad| 200A LB Junction
+4,L,Fuses,Fuses
+5,S,CUS_FUSEPMH4_5_6_9,Fuses for PMH 4| 5| 6| 9
+5,S,CUS_FUSE_PMH41_42,Fuses for PMH 41| 42
+3,L,Transformers,Transformers
+4,L,Padmount XFs,Padmount XFs
+5,S,CUS_TX_PM_1PH,1PH Transformer| Padmount
+5,S,CUS_TX_PM_3PH,3PH Transformer| Padmount
+5,S,CUS_TX_TIE_PAD,System Tie| Autotransformer
+5,S,CUS_TX_PM_HDWR,Misc Padmount TX Hardware
+5,S,CUS_TX_PM_TIE_HDWR,Padmount Tie Transformer Hardware
+4,L,Pads & Accessories,Pads & Accessories
+5,S,CUS_TX_PAD,Pad| Transformer
+5,S,CUS_TX_TIE_PAD,Pad| Tie Transformer
+5,S,CUS_TX_PM_HDWR,Transformer| Padmount Hardware
+5,S,CUS_PAD_POURED,Poured Pads
+5,S,CUS_TX_PADS,Transformer Pads
+5,S,CUS_TX_BUS_DUCT,Bus Duct Termination
+5,S,CUS_CONN_FLEX_CU,Flexible Copper Braid Connector
+5,S,CUS_BARRIER_POST,Barrier Post
+5,S,CUS_BARR_PST_HDWR,Barrier Post Hardware
+5,S,CUS_RETAINING_WALL,Precast Concrete Retaining Wall
+4,L,Subsurface XFs,Subsurface XFs
+5,S,CUS_SUB1PHRND_TX,1PH Round| Transformer
+5,S,CUS_SUB1PHRND_TXSW,1PH Round w/ SW| Transformer
+5,S,CUS_SUB_1PH_H_TX,1PH Horizontal| Transformer
+5,S,CUS_SUB_1PH_H_TXSW,1PH Horizontal w/ SW| Transformer
+5,S,CUS_SUB_DPLX_TX,Duplex| Transformer
+5,S,CUS_SUB_DPLX_TXSW,Duplex w/ SW| Transformer
+5,S,CUS_TX_SS_UCD,3PH Vault| Transformer
+5,S,CUS_SUB_UCD_TRF_SW,3PH UCD-LB| Transformers
+5,S,CUS_SUB_NW_PRT600V,Secondary Network Protector w/ Fuses
+5,S,CUS_NETWORK_TX_1PH,1PH Subway-LB| Transformers
+5,S,CUS_NETWORK_TX_3PH,3PH Network| Transformer
+4,L,Subsurface Material,Subsurface Material
+5,S,CUS_UG_TX_HDWR,Transformer Hardware| Underground
+5,S,CUS_SUB_TX_BUS,Bussing| Subsurface Transformer
+5,S,CUS_SEC_BUS_RND1PH,Bussing| Sec| 1Ph Round Transformer
+5,S,CUS_TX_SS_HDWR,Transformer Stands & Spacers
+5,S,CUS_SS_TX_BUS_CONN,Bus Connector| Subsurface Transformer
+5,S,CUS_SS_TX_GRD_CLMP,Ground Clamp| Subsurface Transformer
+5,S,CUS_MANHL_BUS_NW,Manhole Bus & Racking| Network
+5,S,CUS_UCD_CATH_PROT,UCD Cathodic Protection Kit
+5,S,CUS_NET_BOLT_CONN,Network Bolt Connector
+4,L,Fuses,Fuses
+5,S,CUS_FUSE_CRNT_LIMT,Current Limititing Fuse
+5,S,CUS_UG_EQUP_CLFUSE,CL Fuse Equipment| Underground
+5,S,CUS_BAYONET_FUSE,Bayonet Fuse
+5,S,CUS_NETLIMITR_600V,Network Limiter| 600V
+2,L,SmartMeters,SmartMeters
+3,L,Meters,Meters
+4,S,CUS_WATTHOUR_METER,Meter| Watthour
+4,S,CUS_AG_METERING,AG Metering
+4,S,CUS_CI_METERING,CI Metering
+4,S,CUS_METERING_HDWR,Metering Hardware
+3,L,Current/Potential Transformers,Current/Potential Transformers
+4,S,CUS_CURRENT_TX,Current Transformer
+4,S,CUS_POTENTIAL_TX,Potential Transformer
+4,S,CUS_PT_MTG_BKT,PT Mounting Bracket
+4,S,CUS_OIL_PT_HDWR,Oil Filled PT Hardware
+4,S,CUS_DRY_TX_MTG_BKT,Dry TX Mounting Bracket
+4,S,CUS_INSTRUMENT_TX,Instrument Transformer
+3,L,SmartMeter Network,SmartMeter Network
+4,S,CUS_SMRTMTR_EQUIP,Access Point| DCU & Relay
+4,S,CUS_SMRTMTR_MISC,DCU Mounting Materials
+4,S,CUS_SMRTMTR_POWER,Access Point & DCU Power Supply
+2,L,Streetlights,Streetlights
+3,L,Luminaires and Kits,Luminaires and Kits
+4,S,CUS_LUMINAIRE_KIT,"HPSV 6' & 30"" Luminaire Kits"
+4,S,CUS_LED_LUMINAIRE,LED| Luminaire
+4,S,CUS_HOLO_LUMINAIRE,Holophane| Luminaire
+4,S,CUS_HPSV_LUMINAIRE,HPSV| Luminaire
+4,S,CUS_OL1_LUMIN,OL1 Luminaires| Kits & Floodlights
+4,S,CUS_STLT_PHOTOCELL,Streetlight Photocell
+4,S,CUS_STLT_CNTRL_RLY,Streetlight Control Relay
+3,L,Brackets and Arms,Brackets and Arms
+4,S,CUS_STLT_BRK_ARM,Streetlight Bracket Arm
+3,L,Brackets| Arms & Misc Material,Brackets| Arms & Misc Material
+4,S,CUS_STLT_BRK_ARM,Brackets and Arms| Streetlight
+4,S,CUS_STLT_HDWR,Streetlight Hardware
+4,S,CUS_HPSV_SHIELD,HPSV Glare Shield
+4,S,CUS_STLT_PCEL_RLAY,Photocell & Control Relay| Streetlight
+4,S,CUS_BAND_HOLOPHANE,Decorative Holophane Bands
+3,L,Poles and Posts,Poles and Posts
+4,S,CUS_STLT_POLE,Steel Pole| Streetlight
+4,S,CUS_STLT_POLE_AL,Aluminum Pole| Streetlight
+4,S,CUS_BAND_HOLOPHANE,Holophane Band
+3,L,Foundations and Misc.,Foundations & UG Feed Material
+4,S,CUS_STLT_FNDTN,Streetlight Foundation
+4,S,CUS_STLT_ENCL,Enclosure| Streetlight
+4,S,CUS_STLT_CONDUIT,Conduit| Streetlight
+3,L,Transformers,Transformers
+4,S,CUS_STLT_TX,Transformer| Streetlight
+2,L,Transmission,Transmission
+3,L,Transmission Pole,Transmission Pole
+4,S,CUS_POLE_WOOD,Wood Pole
+4,S,CUS_POLE_STL,Steel Pole
+4,S,CUS_POLE_STRN,Steel Strain Pole
+4,S,CUS_REM_TRANSM_POL,Transmission Pole Removal
+3,L,Transmission Conductor,Transmission Conductor
+4,S,CUS_OH_COND_ACSR,ACSR Conductors
+4,S,CUS_OH_COND_AL,All Aluminum Conductors
+4,S,CUS_OH_COND_COPR,Copper Conductors
+4,S,CUS_VIB_DAMPER,Vibration Dampers
+4,S,CUS_REM_TRANSM_CND,Transmission Conductor Removal
+4,S,CUS_TRANSM_SPL_IN,Conductor| Splice-in| Transmission
+3,L,Transmission Framing,Transmission Framing
+4,S,CUS_TRANSM_FRM_TRI,Triangular Framing Kit
+4,S,CUS_TRANSM_FRMVERT,Vertical Framing Kit
+4,S,CUS_TRANSM_FRMXARM,Crossarm Framing Kit
+4,S,CUS_REM_TRANSM_FRM,Transmission Framing Removal
+3,L,Transmission Hardware,Transmission Hardware
+4,L,Insulators and Fittings,Insulators and Fittings
+5,S,CUS_TRANSM_INS,Insulator| Transmission
+5,S,CUS_TRANSM_STRG_HW,String Hardware
+4,L,Brackets and Bases,Brackets and Bases
+5,S,CUS_TRANSM_BKT,Bracket
+5,S,CUS_TRANSM_PIN_PLT,Pins & Plates
+4,L,XArms and Misc.,XArms and Misc.
+5,S,CUS_TRANSM_HDWR,Hardware
+5,S,CUS_TRANSM_CLAMP,Clamp
+5,S,CUS_TRANSM_XARM,Crossarm
+5,S,CUS_TRANSM_JUMPER,Jumper
+5,S,CUS_ARMOR_ROD,Armor Rod
+5,S,CUS_HLDDWN_WEIGHTS,Hold Down Weights
+3,L,Transmission Switches,Transmission Switches
+4,S,CUS_TRANSM_INERTIA,Inertia Switch
+4,S,CUS_SW_PLATFORM,Switch Platform
+4,S,CUS_REM_TRANSM_DEV,Transmission Device Removal
+2,L,Labor Hours,Labor Hours
+3,S,CUS_ADMIN_HOURS,Administrative| Hours
+3,S,CUS_ENGINEERING,Engineering| Hours
+3,S,CUS_APPLCNT_DESIGN,Applicant Design| Hours
+3,S,CUS_INSPECTION,Inspection of Applicant Work| Hours
+3,S,CUS_MISC_HOURS,Miscellaneous Labor| Hours
+3,S,CUS_SWITCHING,Switching| Hours
+3,S,CUS_SVC_CONNECT,UG Service Connect| Hours
+2,L,Removal Labor,Removal Labor
+3,L,OH Removals,OH Removals
+4,S,CUS_REM_POLE,Distribution Pole Removal
+4,S,CUS_REM_POLE_FRAM,Distribution Pole Framing Removal
+4,S,CUS_REM_OH_COND,OH Conductor Removal
+4,S,CUS_REM_OH_DEV,OH Device Removal
+4,S,CUS_REM_OH_TX,OH Transformer Removal
+4,S,CUS_REM_DG_ANC,Guy or Anchor Removal
+4,S,CUS_REM_XARM,Crossarm Assembly Removal
+4,S,CUS_REM_RISER,Riser Removal
+4,S,CUS_REM_ENCL,Enclosure Removal
+4,S,CUS_REM_STLT_LAMP,Streetlight Lamp Removal
+4,S,CUS_REM_STLT_POLE,Steetlight Pole Removal
+4,S,CUS_REM_METER,Meter Removal
+4,S,CUS_REM_SMARTMETER,SmartMeter Removal
+3,L,UG Removals,UG Removals
+4,S,CUS_REM_UG_CABLE,UG Cable Removal
+4,S,CUS_REM_UG_DEV,UG Device Removal
+4,S,CUS_REM_UG_TX,UG Transformer Removal
+4,S,CUS_REM_PAD,Pad Removal
+4,S,CUS_REM_STLT_COND,Streetlight Conductor Removal
+4,S,CUS_REM_STLT_CABLE,Streetlight Cable Removal
+2,L,Transfer Labor,Transfer Labor
+3,S,CUS_TSF_SMART_MTR,Transfer SmartMeter Equipment
+3,S,CUS_TSF_FRAMING,Transfer Framing
+3,S,CUS_TSF_TX,Transfer OH Transformer
+3,S,CUS_TSF_DEVICE,Transfer Device
+3,S,CUS_TSF_CONDUCTOR,Transfer Conductor
+3,S,CUS_TSF_RISER,Transfer Riser Moulding
+3,S,CUS_TSF_STLT,Transfer Streetlight Equipment
+3,S,CUS_TSF_TRANSM_CON,Transfer Transmission Conductor
+3,S,CUS_TSF_TRANSM_FRM,Transfer Transmission Framing
+3,S,CUS_TSF_TRANSM_DEV,Transfer Transmission Device
+2,L,Supplemental Charges,Supplemental Charges
+3,S,CUS_CHG_FLAGGING,Flagging
+3,S,CUS_CHG_PERMIT,Permits
+3,S,CUS_CHG_EQUP_RENT,Equipment Rental
+3,S,CUS_CHG_HELICOPTER,Helicopter Rental
+3,S,CUS_CHG_VEG_PERMIT,Vegetation Permit
+3,S,CUS_CHG_MTL_DOLLAR,Material Dollars
+3,S,CUS_CHG_DIRECTDLLR,Direct Dollars
+3,S,CUS_CHG_CONC_PAVE,Concrete Paving
+3,S,CUS_CHG_HAULING,Contractor Hauling
+3,S,CUS_CHG_MISC,Miscellaneous Charges
+3,L,Joint Pole Charges,Joint Pole Charges
+4,S,CUS_CHG_JP_PLMAINT,JP| Pole Maintenance & Miscellaneous
+4,S,CUS_CHG_JP_ANC_ADD,JP| Joint Pole & Anchor Adders
+4,S,CUS_CHG_JP_TSF_GUY,JP| Transfer Costs| Guy Wires
+4,S,CUS_CHG_JP_TSF_PWR,JP| Transfer Costs| Power Circuits
+4,S,CUS_CHG_JP_TSF_COM,JP| Transfer Cost|Communication Circuits
+4,S,CUS_CHG_JP_INS_GUY,JP| Install Costs| Guys and Anchors
+4,S,CUS_CHG_JP_INS_PWR,JP| Install Costs| Power Circuits
+4,S,CUS_CHG_JP_INS_COM,JP| Install Costs|Communication Circuits

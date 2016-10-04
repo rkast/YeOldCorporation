@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+var character
+var map = []
+var keyState ={};
+
+
+function startGame() {
+    character = new BlackMage();
+    map = []
+    myGameArea.start();
+    character.Idle()
+}
+
+function BlackMage (){
+    var walkFrames = []
+    walkFrames.push(new Frame(43,26,18,26));
+    walkFrames.push(new Frame(66,26,18,26));
+    walkFrames.push(new Frame(89,26,18,26));
+    //walkFrames.push(new Frame(114,26,18,26));
+    walkFrames.push(new Frame(139,26,18,26));
+    var idleFrames = []
+    idleFrames.push(new Frame(43,26,18,26));
+    var animations = []
+    animations.push(new Animation("Walk", walkFrames));
+    animations.push(new Animation("Idle", idleFrames));
+    this.sprite = new Sprite("Assets/BlackMage.GIF",420,220,1,animations );
+    this.Update = function(){
+        this.sprite.Update();
+    }
+    this.Draw = function(){
+        this.sprite.Draw();
+    }
+    this.Walk = function(velX,velY){
+        this.sprite.setVelocity(velX,velY)
+        this.sprite.setAnimation("Walk")
+    }
+    this.Idle = function(){
+         this.sprite.setVelocity(0,0)
+        this.sprite.setAnimation("Idle")
+    }
+}
+
+function Animation(name, frames){
+    var currentIndex = 0;
+    this.name = name
+    this.frames = frames
+    this.advanceFrame = function(){
+        currentIndex++
+        if(currentIndex >= this.frames.length){
+            currentIndex = 0;
+        }
+    }
+    this.getCurrentFrame = function(){
+        return frames[currentIndex];
+    }
+}
+
+function Frame(sx, sy, sw, sh){
+    this.x = sx;
+    this.y = sy
+    this.width = sw
+    this.height = sh
+}
+
+function Sprite(path, dx, dy, dScale, animations){
+    this.img = new Image();
+    this.posX = dx;
+    this.posY = dy;
+    this.animationSets = animations;
+    var scale = dScale;
+    var currentAnimation;
+    var velX = 0;
+    var velY = 0;
+    var frameClock = 0;
+    var frameSpeed = 10
+    this.setAnimation = function(name){
+        currentAnimation = this.animationSets.find(function(set){ return set.name == name})
+    }
+    this.setVelocity = function(newVelX, newVelY){
+        velX = newVelX;
+        velY = newVelY;
+    }
+    this.Update = function (){
+        frameClock++
+        if(frameClock > frameSpeed){
+            console.log("X: " +velX+ " , Y:" + velY)
+            this.posX += velX;
+            this.posY += velY;
+            if(this.posX < 0){
+                this.posX = 0;
+            }
+            if(this.posX > 480){
+                this.posX = 480;
+            }
+            if(this.posY < 0){
+                this.posY = 0;
+            }
+             if(this.posY > 270){
+                this.posY = 270;
+            }
+            currentAnimation.advanceFrame();
+            frameClock = 0;
+        }        
+    }
+    this.Draw = function(){
+        var frame = currentAnimation.getCurrentFrame();
+        myGameArea.context.drawImage(this.img, frame.x, frame.y, frame.width, frame.height, this.posX, this.posY, frame.width*scale, frame.height*scale)
+    }
+
+    this.img.addEventListener("load", function(e) {
+
+        alert("success");
+        myGameArea.start();
+            
+    });
+    this.img.addEventListener("error", function(e) {
+        alert("error");
+    })
+    this.img.src = path
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    getInputState : function(){
+        return keyState
+    },
+    start : function() {
+        keyState={};
+        window.onkeydown=function(e){
+             e = e || window.event;
+             keyState[e.key] = true;
+        }
+
+        window.onkeyup=function(e){
+             e = e || window.event;
+             delete keyState[e.key];
+        }
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function updateGameArea() {
+
+   
+    var inputState = myGameArea.getInputState();
+    var velX = 0;
+    var velY = 0;
+    if(inputState["w"]){
+        velY -= 4; 
+    }
+    if(inputState["s"]){
+        velY += 4; 
+    }
+    if(inputState["a"]){
+        velX -= 4; 
+    }
+    if(inputState["d"]){
+        velX += 4;
+    }
+    if(velX == 0 && velY ==0){
+        character.Idle();
+    } else {
+        character.Walk(velX,velY);
+    }
+
+   
+    character.Update()
+    myGameArea.clear();
+    character.Draw()
+}
+</script>
+<br>
+</body>
+</html>

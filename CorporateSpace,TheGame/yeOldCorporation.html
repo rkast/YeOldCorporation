@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+.hidden {
+    opacity: 0.0;
+}
+</style>
+</head>
+<body onload="startGame()">
+
+<input id="map1File" type="file" onchange="handleFileSelect()">
+
+<script>
+var character
+var map;
+var mapTileWidth = 30
+var mapTileHeight = 17
+var forestDensity = 25 //value 1-100, representing percentage of tree density
+var keyState ={};
+var assetManager = {
+    assetLoadedCount: 0,
+    assetTotal: 0
+}
+var that = this;
+/*
+function Animal (name){
+    this.name = name
+    this.sayHello = function(){
+        console.log("Hello, I'm a "+ this.name);
+    }
+} 
+function Dog (){
+    this.__proto__ = new Animal("Dog");
+}
+
+var animal = new Animal("animal");
+animal.sayHello();
+var dog = new Dog()
+dog.sayHello();
+*/
+/*
+var handleFileSelect = function(evt){
+    debugger;
+}
+*/
+debugger;
+var checkCollsion = function(rect1, rect2){
+    if(rect1.x < rect2.x + rect2.width && rect1.x + rect1.width > rect2.x && rect1.y < rect2.y + rect2.height && rect1.height + rect1.y > rect2.y){
+
+        var rect1CenterX = rect1.x + rect1.width/2
+        var rect1CenterY = rect1.y + rect1.height/2
+        var rect2CenterX = rect2.x + rect2.width/2
+        var rect2CenterY = rect2.y + rect2.height/2
+
+        var left = false;
+        var xDiff = rect1CenterX - rect2CenterX
+        if(xDiff < 0){
+            left = true
+        }
+        var top = false;
+        var yDiff = rect1CenterY - rect2CenterY
+        if(yDiff < 0){
+            top = true
+        }
+
+        if(Math.abs(xDiff) > Math.abs(yDiff)){
+            if(left){
+                return "left"
+            } else {
+                return "right"
+            }
+        } else {
+            if(top){
+                return "top"
+            } else {
+                return "bottom"
+            }
+        }
+    } else {
+        return false;
+    }
+}
+
+var markAssetAsLoaded = function(){
+    assetManager.assetLoadedCount++;
+    if(assetManager.assetLoadedCount >= assetManager.assetTotal){
+        alert("Game Loaded All Assets, Beginning Now!")
+        myGameArea.start();
+    }
+}
+
+function startGame() {
+    character = new SomeDude(assetManager);
+    character.setFacing("Left");
+    map = new Map(assetManager,mapTileWidth, mapTileHeight)
+    //map.generateFromCSV();
+    map.generateForest(forestDensity);
+    
+   
+}
+
+function Tile(assetManager,x,y,sx,sy){
+    this.xLoc = x;
+    this.yLoc = y
+    var staticState = []
+    staticState.push(new Frame(sx,sy,16,16));
+    var animations = []
+    animations.push(new Animation("Static", staticState));
+
+    this.sprite = new Sprite("Assets/basictiles.png",this.xLoc,this.yLoc,1,animations, assetManager);
+    this.sprite.setAnimation("Static")
+
+    this.Draw = function(){
+        this.sprite.Draw();
+    }
+}
+
+function RoundTreeTile (assetManager,x,y){
+    this.__proto__ = new Tile(assetManager,x,y,96,64);
+}
+function PointedTreeTile (assetManager,x,y){
+    this.__proto__ = new Tile(assetManager,x,y,96,48);
+}
+function TwoTreeTile (assetManager,x,y){
+    this.__proto__ = new Tile(assetManager,x,y,80,144);
+}
+function BushTile (assetManager,x,y){
+    this.__proto__ = new Tile(assetManager,x,y,64,32);
+}
+
+function ShortGrassTile (assetManager,x,y){
+    this.__proto__ = new Tile(assetManager,x,y,48,16);
+}
+
+function MediumGrassTile (assetManager,x,y){
+    this.__proto__ = new Tile(assetManager,x,y,0,128);
+}
+function DeepGrassTile (assetManager,x,y){
+    this.__proto__ = new Tile(assetManager,x,y,16,128);
+}
+
+function Map (assetManager, tileWidth, tileHeight){
+    var assetManager = assetManager;
+    this.height = tileHeight * 16;
+    this.width = tileWidth * 16;
+    this.tileWidth = tileWidth
+    this.tileHeight = tileHeight
+    this.backgroundTiles = []
+    this.collisionTiles = []
+    this.foregroundTiles = []
+    for(var i = 0; i < this.tileWidth; i++)  {
+        this.backgroundTiles[i] = [];
+        this.collisionTiles[i] = [];
+        this.foregroundTiles[i] = [];
+        for(var j = 0; j < this.tileHeight; j++)  {
+            this.backgroundTiles[i][j] = false;
+            this.collisionTiles[i][j] = false;
+            this.foregroundTiles[i][j] = false;
+        }
+    }
+    this.generateFromCSV = function(){
+        console.log("input given");
+        var file = that.document.getElementById("map1File").files[0]
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            debugger;
+            var rows = []
+            var rawRows = this.result.split("\n")
+            rawRows.forEach(function(row){
+                rows.push(row.split(","));
+            })
+            rows.pop()
+            var root = {}
+            root.Level = rows[0][0]
+            root.Type = rows[0][1]
+            root.Value = rows[0][2]
+            root.Name = rows[0][3].replace("\r","")
+            root.nodes = getSubNodes(rows,{count: 0},1)
+            var json = {Tree: root}
+           
+            debugger;
+            that.document.getElementById("output").innerText = JSON.stringify(json,null,2);
+        }   
+
+        reader.readAsText(file);  
+    } 
+
+    this.generateForest = function(forestDensity){
+        for(var i = 0; i < this.backgroundTiles.length; i++){
+            var row = this.backgroundTiles[i];
+            for(var j = 0; j < row.length; j++){
+                var tileSeed = Math.floor((Math.random() * 3));
+                if(tileSeed == 0){
+                    this.backgroundTiles[i][j] = new ShortGrassTile(assetManager, i*16, j*16);
+                } else if(tileSeed == 1){
+                    this.backgroundTiles[i][j] = new MediumGrassTile(assetManager, i*16, j*16);
+                } else {
+                    this.backgroundTiles[i][j] = new DeepGrassTile(assetManager, i*16, j*16);
+                }
+                
+                var hasTreeSeed = Math.floor((Math.random() * 100)+1);
+                if(hasTreeSeed < forestDensity){
+                    var treeTypeSeed = Math.floor((Math.random() * 4));
+                    if(treeTypeSeed == 0){
+                        this.collisionTiles[i][j] = new RoundTreeTile(assetManager, i*16, j*16);
+                    } else if(tileSeed == 1){
+                        this.collisionTiles[i][j] = new PointedTreeTile(assetManager, i*16, j*16);
+                    } else if(treeTypeSeed == 2){
+                        this.collisionTiles[i][j] = new TwoTreeTile(assetManager, i*16, j*16);
+                    } else {
+                        this.collisionTiles[i][j] = new BushTile(assetManager, i*16, j*16);
+                    }
+                }
+                
+
+            }
+        }
+    }
+    this.DrawBackground = function(){
+        this.backgroundTiles.forEach(function(row){
+            row.forEach(function(tile){
+                if(tile){
+                    tile.Draw();
+                }
+            })
+        })
+    }
+    this.DrawCollsionLayer = function(){
+        this.collisionTiles.forEach(function(row){
+            row.forEach(function(tile){
+                if(tile){
+                    tile.Draw();
+                }
+            })
+        })
+    }
+     this.DrawForeground = function(){
+        this.foregroundTiles.forEach(function(row){
+            row.forEach(function(tile){
+                if(tile){
+                    tile.Draw();
+                }
+            })
+        })
+    }
+}
+
+function SomeDude (assetManager){
+
+    var frontStandingState = []
+    frontStandingState.push(new Frame(67,0,10,16))
+    frontStandingState.push(new Frame(51,0,10,16))
+    frontStandingState.push(new Frame(67,0,10,16))
+    frontStandingState.push(new Frame(83,0,10,16))
+
+    var leftStandingState = []
+    leftStandingState.push(new Frame(67,16,10,16))
+    leftStandingState.push(new Frame(51,16,10,16))
+    leftStandingState.push(new Frame(67,16,10,16))
+    leftStandingState.push(new Frame(83,16,10,16))
+
+    var rightStandingState = []
+    rightStandingState.push(new Frame(67,32,10,16))
+    rightStandingState.push(new Frame(51,32,10,16))
+    rightStandingState.push(new Frame(67,32,10,16))
+    rightStandingState.push(new Frame(83,32,10,16))
+
+    var backStandingState = []
+    backStandingState.push(new Frame(67,48,10,16))
+    backStandingState.push(new Frame(51,48,10,16))
+    backStandingState.push(new Frame(67,48,10,16))
+    backStandingState.push(new Frame(83,48,10,16))
+
+    var animations = []
+    animations.push(new Animation("FStand", frontStandingState));
+    animations.push(new Animation("LStand", leftStandingState));
+    animations.push(new Animation("RStand", rightStandingState));
+    animations.push(new Animation("BStand", backStandingState));
+
+    this.sprite = new Sprite("Assets/characters.png",420,220,1,animations, assetManager );
+    var currentFacing;
+
+    this.Update = function(){
+        this.sprite.Update();
+    }
+    this.Draw = function(){
+        this.sprite.Draw();
+    }
+    this.setVelocity = function(velX,velY){
+        this.sprite.setVelocity(velX,velY)
+    }
+    this.setFacing = function(direction){
+        if(direction != currentFacing){
+            currentFacing = direction
+            if(direction == "Left") {
+                this.sprite.setAnimation("LStand")
+            } else if (direction == "Right"){
+                this.sprite.setAnimation("RStand")
+            } else if (direction == "Up"){
+                this.sprite.setAnimation("BStand")
+            } else if (direction == "Down"){
+                this.sprite.setAnimation("FStand")
+            }
+        }
+        
+    }
+    this.CheckCollisionEdges = function(map){
+        var characterBox = this.sprite.getCollisionBox();
+        var x = characterBox.x;
+        var y = characterBox.y;
+        if(characterBox.x < 0){
+            x = 0
+        }
+        if(characterBox.x + characterBox.width > map.width){
+            x = map.width - characterBox.width;
+        }
+        if(characterBox.y + characterBox.height > map.height){
+            y = map.height - characterBox.height;
+        }
+        if(characterBox.y < 0){
+            y = 0;
+        }
+        this.sprite.setPosition(x,y);
+    }
+    this.CheckCollisionLayer = function(collisionTiles){
+         for(var i = 0; i < collisionTiles.length; i++){
+            var row = collisionTiles[i];
+            for(var j = 0; j < row.length; j++){
+                if(row[j]){
+                    var tileBox = row[j].sprite.getCollisionBox();
+                    var characterBox = this.sprite.getCollisionBox();
+                    var collision = checkCollsion(characterBox,tileBox);
+                    if(collision !== false){
+                        var x = characterBox.x;
+                        var y = characterBox.y;
+                        if(collision === "left"){
+                            x = tileBox.x - characterBox.width;
+                        } else if(collision === "right"){
+                            x = tileBox.x + tileBox.width;
+                        } else if(collision === "top"){
+                            y = tileBox.y - characterBox.height;
+                        } else if(collision === "bottom"){
+                            y = tileBox.y + tileBox.height;
+                        }
+                        this.sprite.setPosition(x,y);
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+function BlackMage (){
+    var walkFrames = []
+    walkFrames.push(new Frame(43,26,18,26));
+    walkFrames.push(new Frame(66,26,18,26));
+    walkFrames.push(new Frame(89,26,18,26));
+    //walkFrames.push(new Frame(114,26,18,26));
+    walkFrames.push(new Frame(139,26,18,26));
+    var idleFrames = []
+    idleFrames.push(new Frame(43,26,18,26));
+    var animations = []
+    animations.push(new Animation("Walk", walkFrames));
+    animations.push(new Animation("Idle", idleFrames));
+    this.sprite = new Sprite("Assets/BlackMage.GIF",420,220,10,animationas );
+    this.Update = function(){
+        this.sprite.Update();
+    }
+    this.Draw = function(){
+        this.sprite.Draw();
+    }
+    this.Walk = function(velX,velY){
+        this.sprite.setVelocity(velX,velY)
+        this.sprite.setAnimation("Walk")
+    }
+    this.Idle = function(){
+         this.sprite.setVelocity(0,0)
+        this.sprite.setAnimation("Idle")
+    }
+}
+
+function Animation(name, frames){
+    var currentIndex = 0;
+    this.name = name
+    this.frames = frames
+    this.advanceFrame = function(){
+        currentIndex++
+        if(currentIndex >= this.frames.length){
+            currentIndex = 0;
+        }
+    }
+    this.getCurrentFrame = function(){
+        return frames[currentIndex];
+    }
+}
+
+function Frame(sx, sy, sw, sh){
+    this.x = sx;
+    this.y = sy
+    this.width = sw
+    this.height = sh
+}
+
+function Sprite(path, dx, dy, dScale, animations, assetManager){
+    assetManager.assetTotal++;
+    this.img = new Image();
+    this.posX = dx;
+    this.posY = dy;
+    this.animationSets = animations;
+    var scale = dScale;
+    var currentAnimation
+    var velX = 0;
+    var velY = 0;
+    var frameClock = 0;
+    var frameSpeed = 3
+    this.getCollisionBox = function(){
+        var frame = currentAnimation.getCurrentFrame();
+        return {x: this.posX, y: this.posY, width: frame.width, height: frame.height}
+    }
+    this.setAnimation = function(name){
+        currentAnimation = this.animationSets.find(function(set){ return set.name == name})
+    }
+    this.setVelocity = function(newVelX, newVelY){
+        velX = newVelX;
+        velY = newVelY;
+    }
+    this.getVelocity = function(){
+        return {xVel: velX, yVel: velY}
+    }
+    this.setPosition = function(newPosX,newPosY){
+        this.posX = newPosX;
+        this.posY = newPosY;
+    }
+    this.getPosition = function(){
+        return {x: velX, y: velY}
+    }
+    this.Update = function (){
+        console.log("X: " +velX+ " , Y:" + velY)
+        this.posX += velX;
+        this.posY += velY;
+        
+        if(frameClock > frameSpeed){
+            if(velX != 0 || velY != 0){
+                currentAnimation.advanceFrame();
+            }
+            
+            frameClock = 0;
+        } else {
+            frameClock++
+        }
+            
+    }
+    this.Draw = function(){
+        var frame = currentAnimation.getCurrentFrame();
+        myGameArea.context.drawImage(this.img, frame.x, frame.y, frame.width, frame.height, this.posX, this.posY, frame.width*scale, frame.height*scale)
+    }
+
+    this.img.addEventListener("load", function(e) {
+        markAssetAsLoaded();
+            
+    });
+    this.img.addEventListener("error", function(e) {
+        alert("error");
+    })
+    this.img.src = path
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    getInputState : function(){
+        return keyState
+    },
+    start : function() {
+        keyState={};
+        window.onkeydown=function(e){
+             e = e || window.event;
+             keyState[e.key] = true;
+        }
+
+        window.onkeyup=function(e){
+             e = e || window.event;
+             delete keyState[e.key];
+        }
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 17);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function updateGameArea() {
+
+   
+    var inputState = myGameArea.getInputState();
+    var velX = 0;
+    var velY = 0;
+
+    if(inputState["w"]){
+        velY -= 1.5
+        character.setFacing("Up")
+    }
+    if(inputState["s"]){
+        velY += 1.5
+        character.setFacing("Down")
+    }
+    if(inputState["a"]){
+        velX -= 1.5
+        character.setFacing("Left")  
+    }
+    if(inputState["d"]){
+        velX += 1.5
+        character.setFacing("Right") 
+    }   
+    character.setVelocity(velX,velY);
+
+    character.Update()
+    character.CheckCollisionLayer(map.collisionTiles);
+    character.CheckCollisionEdges(map)
+    myGameArea.clear();
+    map.DrawBackground();
+    map.DrawCollsionLayer();
+    character.Draw();
+}
+</script>
+<br>
+</body>
+</html>
